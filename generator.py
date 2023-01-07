@@ -34,7 +34,7 @@ def range_gen(*args):
     When step is given, it specifies the increment (or decrement).
     """
 
-    if len(args) == 0:
+    if not len(args):
         raise TypeError("Expected at least 1 argument")
 
     elif len(args) == 1:

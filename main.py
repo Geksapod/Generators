@@ -1,7 +1,6 @@
 import generator as g
 import statistic as s
 import pizza as p
-import datetime as dt
 import ticket as t
 import timeit
 import itertools
@@ -10,7 +9,7 @@ import json
 
 if __name__ == "__main__":
 
-    #Task #1
+    # Task #1
     print(f"{'Task #1':-^60}")
 
     try:
@@ -24,8 +23,7 @@ if __name__ == "__main__":
 
     print("\n")
 
-
-    #Task #2
+    # Task #2
     print(f"{'Task #2':-^60}")
 
     try:
@@ -36,8 +34,7 @@ if __name__ == "__main__":
 
     print("\n")
 
-
-    #Task #3
+    # Task #3
     print(f"{'Task #3':-^60}")
 
     try:
@@ -48,8 +45,7 @@ if __name__ == "__main__":
 
     print("\n")
 
-
-    #Task #4
+    # Task #4
     print(f"{'Task #4':-^60}")
 
     n = 10
@@ -77,8 +73,7 @@ list_2 = list(i ** 3 for i in range(2, n))
     print(list_2, " -> ", end="")
     print((timeit.timeit(stmt=s2, number=1000000)), "c", "\n")
 
-
-    #Task #5
+    # Task #5
     print(f"{'Task #5':-^60}")
 
     try:
@@ -90,14 +85,13 @@ list_2 = list(i ** 3 for i in range(2, n))
     except FileNotFoundError as error:
         print(error)
 
-
-    #Task #6
+    # Task #6
     print(f"{'Task #6':-^60}")
 
     try:
         pizza_1 = p.Pizza("Pepperoni", ["Tomato sauce", "mozzarella", "pepperoni"], 260)
         pizza_2 = p.Pizza("Margherita", ["Tomato sauce", "mozzarella", "tomatoes", "provencal herbs"], 250)
-        pizza_3 = p.Pizza("Hawaiian", ["Tomato sauce", "mozzarella", "chickeni", "pineapple", "tomatoes"], 250)
+        pizza_3 = p.Pizza("Hawaiian", ["Tomato sauce", "mozzarella", "chicken", "pineapple", "tomatoes"], 250)
         pizza_4 = p.Pizza("Four cheese", ["Cream sauce", "mozzarella", "ricotta", "parmesan", "gorgonzola"], 260)
         pizza_5 = p.Pizza("Provence", ["Cream sauce", "mozzarella", "gorgonzola", "chicken", "french mustard"], 260)
         pizza_6 = p.Pizza("Vegetariana", ["Tomato sauce", "champignons", "arugula", "tomatoes",
@@ -111,11 +105,17 @@ list_2 = list(i ** 3 for i in range(2, n))
         extra_5 = p.Extra("champignons", 15)
         extra_6 = p.Extra("chicken fillet", 30)
 
-        pizza_dict = {1: pizza_1, 2: pizza_2, 3: pizza_3, 4: pizza_4, 5: pizza_5, 6: pizza_6, 7: pizza_7}
-        day_of_week_today = dt.datetime.now().isoweekday()
-        pizza_of_the_day = pizza_dict[day_of_week_today]
+        p.week_of_pizza(1, pizza_1, p.pizza_dict)
+        p.week_of_pizza(2, pizza_2, p.pizza_dict)
+        p.week_of_pizza(3, pizza_3, p.pizza_dict)
+        p.week_of_pizza(4, pizza_4, p.pizza_dict)
+        p.week_of_pizza(5, pizza_5, p.pizza_dict)
+        p.week_of_pizza(6, pizza_6, p.pizza_dict)
+        p.week_of_pizza(7, pizza_7, p.pizza_dict)
 
-        order_1 = p.Order("0001", pizza_of_the_day)
+        pizza_today = p.pizza_of_the_day(p.pizza_dict)
+
+        order_1 = p.Order("0001", pizza_today)
         order_1.add_extra(extra_1)
         order_1.add_extra(extra_2)
         order_1.add_extra(extra_3)
@@ -127,8 +127,7 @@ list_2 = list(i ** 3 for i in range(2, n))
     except ValueError as error:
         print(error)
 
-
-    #Task #7
+    # Task #7
     print(f"{'Task #7':-^60}")
 
     try:
@@ -152,14 +151,3 @@ list_2 = list(i ** 3 for i in range(2, n))
 
     except (TypeError, ValueError) as error:
         print(error)
-
-
-
-
-
-
-
-
-
-
-

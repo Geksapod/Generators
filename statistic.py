@@ -3,18 +3,22 @@ import os
 import string
 import itertools
 
+
 class Statistic:
     """
     This class processes text file. Count number of characters, words, sentences that the text contains.
-
-    Args:
-        file (str): The name of the text file.
 
     Attributes:
         file (str): The name of the text file.
     """
 
     def __init__(self, file: str):
+        """
+        Initialisation of the attributes the class Statistic.
+
+        Args:
+            file (str): The name of the text file.
+        """
 
         if not os.path.isfile(file):
             raise FileNotFoundError("The file does not exist")
@@ -118,11 +122,3 @@ class Statistic:
         return f"File contains {self.count_chars()} characters, "\
                f"{self.count_words()} words, "\
                f"{self.count_sentences()} sentences."
-
-
-
-
-
-
-
-
