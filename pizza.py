@@ -164,5 +164,7 @@ def pizza_of_the_day(pizza_dict: dict):
         values are instances of classes Pizza.
     """
 
-    day_of_week_today = dt.datetime.now().isoweekday()
-    return pizza_dict[day_of_week_today]
+    if len(pizza_dict) == 7:
+        day_of_week_today = dt.datetime.now().isoweekday()
+        return pizza_dict[day_of_week_today]
+    raise ValueError("The dictionary must have 7 items.")
